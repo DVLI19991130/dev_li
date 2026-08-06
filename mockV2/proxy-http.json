@@ -1,0 +1,19 @@
+[
+  {
+    "serverName": "proxy-http-server",
+    "serverPort": 8091,
+    "serverMode": "proxy",
+    "protocol": "http",
+    "api": [
+      {
+        "url": "/ABSOTS/BookQuota",
+        "method": "POST",
+        "backend": {
+          "addr": ["172.19.10.180:8090"],
+          "weight": [100]
+        },
+        "delay": 2000
+      }
+    ]
+  }
+]
