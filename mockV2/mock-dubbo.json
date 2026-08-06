@@ -1,0 +1,55 @@
+[
+  {
+    "serverName": "moc-dubbo-server",
+    "serverPort": 6668,
+    "serverMode": "mock",
+    "protocol": "dubbo",
+    "registry": {
+      "zookeeper": {
+        "addr": ["192.168.103.209:2181"]
+      }
+    },
+    "api": [
+      {
+        "interface": "com.ruubypay.miss.ots.virtual.ticket.verifiy.api.OtsTicketService",
+        "version": "1.0.0",
+        "serialization": "hessian2",
+        "registry": "zookeeper",
+        "methods": [
+          {
+            "name": "allocationV1",
+            "delay": -1,
+            "paramType": ["com.ruubypay.miss.ots.virtual.ticket.verifiy.api.model.request.TicketAllocRequestV1"],
+            "responseTypes": {
+              "resCode": "string",
+              "resMessage": "string",
+              "resData": {
+                "_class": "com.ruubypay.miss.ots.virtual.ticket.verifiy.api.model.response.TicketAllocResponse",
+                "productType": "string",
+                "productSubType": "string",
+                "userId": "string",
+                "userTicketId": "int64",
+                "ticketNumber": "int64",
+                "ticketCount": "int",
+                "status": "int"
+              }
+            },
+            "response": {
+              "resCode": "0000",
+              "resMessage": "成功",
+              "resData": {
+                "productType": "31",
+                "productSubType": "2",
+                "userId": "12345",
+                "userTicketId": 10001,
+                "ticketNumber": 20002,
+                "ticketCount": 1,
+                "status": 1
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
